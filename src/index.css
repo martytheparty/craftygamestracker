@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color:#f9b5ac;
+}
+h1 {
+    font-size:21.5px;
+    margin-left: 2rem;
+}
+
+.typebox {
+    display: flex;
+    inline-size: 200px;
+    overflow-wrap:break-word;
+    min-width: none;
+    border: solid black;
+    background-color:#525854;
+    color: #f9b5ac ;
+    padding:10px;
+    margin-top: 1px;
+    margin-left: 2rem;
+    width: 200px;
+    height: 50px;
+}
+.submit {
+    color:#f9b5ac;
+    background-color:#525854;
+    margin-top: 1rem;
+    margin-left:2rem;
+    width: 60px;
+}
