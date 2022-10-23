@@ -29,3 +29,26 @@ h1 {
     margin-left:2rem;
     width: 60px;
 }
+
+.outer
+{
+    display: flex;
+}
+
+
+.input
+{
+    margin: 10px;
+}
+
+.add-to-list
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table
+{
+    border: 1px solid black;
+}

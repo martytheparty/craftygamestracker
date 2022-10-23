@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crafty's Game Tracker</title>
     <link rel="stylesheet" href="index.css">
     <script src = "thirdparty\jquery.min.js"></script>
    
 </head>
 
 <body>
-    <h1>Name / Amount / Picked</h1>
-    <span class = "typebox" ><input textarea = "text"></input></span>
-    <button class = submit>submit</button>
+    <div class="outer">
+        <div class="form">
+            <div class="name input">
+                <input placeholder="Name" type="text" id="name">
+            </div>
+            <div class="amount input">
+                <input placeholder="Amount" type="text" id="amount">
+            </div>
+            <div class="choice input">
+                <input placeholder="Choice" type="text" id="choice">
+            </div>
+            <div class="add-to-list">
+                <button onclick="addNewWinner()">Add To List</button>
+            </div>
+        </div>
+        <div id="records" class="records"></div>
+    </div>
     <script src = "index.js"></script>
 </body>
 </html>
