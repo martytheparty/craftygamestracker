@@ -13,6 +13,7 @@ function getData()
                     <td>${record.winner_name}</td>
                     <td>${record.winner_amt}</td>
                     <td>${record.winner_choice}</td>
+                    <td><span class='delete' onclick="deleteWinner(${record.w_id})">x</span></td>
                     </tr>`;
             }
         );
@@ -36,7 +37,18 @@ function addNewWinner()
     $.post("http://games.craftybymelissa.xyz/api/wins.php", JSON.stringify(record), ( record ) => {
         getData();
       },'json');
+}
 
+function deleteWinner(winnerId)
+{
+    $.ajax({
+        url: 'http://games.craftybymelissa.xyz/api/wins.php',
+        type: 'DELETE',
+        success: function(data) {
+          getData();
+        },
+        data:  JSON.stringify({w_id: winnerId})
+      });
 }
 
 getData();

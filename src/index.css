@@ -52,3 +52,9 @@ table
 {
     border: 1px solid black;
 }
+
+.delete
+{
+    cursor: pointer;
+    color: #483838;
+}
