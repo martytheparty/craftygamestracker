@@ -1,0 +1,11 @@
+### winners
+# GET http://games.craftybymelissa.xyz/api/wins.php HTTP/1.1
+
+POST http://games.craftybymelissa.xyz/api/wins.php HTTP/1.1
+content-type: application/json
+
+{
+    "winner_name": "test 2",
+    "winner_amt": "100",
+    "winner_choice": "Test Shiny One"
+}
