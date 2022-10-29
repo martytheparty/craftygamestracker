@@ -2,7 +2,7 @@ function getData()
 {
     const recordDiv = document.getElementById('records');
     recordDiv.innerHTML = 'loading...';
-    $.get('http://games.craftybymelissa.xyz/api/wins.php',
+    $.get('http://games.craftybymelissa.xyz/api/winner.json?' + Date.now(),
     (data) => {
         data = data.reverse();
         let html = '<table>';

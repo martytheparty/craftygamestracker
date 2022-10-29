@@ -3,7 +3,7 @@ header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *"); 
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE, PATCH");
 
-<?php include 'auth.php';?>
+include 'auth.php';
 
 $link = mysqli_connect($hostname, $username, $password, $database);
 
@@ -49,6 +49,15 @@ $link = mysqli_connect($hostname, $username, $password, $database);
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
+        $myArrOut = array();
+        $sql = "SELECT w_id, winner_name, winner_amt, winner_choice FROM winners where deleted = 0";
+        $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
+        while($row = mysqli_fetch_assoc($result)) {
+            array_push($myArrOut, $row);
+        }
+        mysqli_close($link);
+        file_put_contents('winner.json', json_encode($myArrOut));
+
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
@@ -70,8 +79,17 @@ $link = mysqli_connect($hostname, $username, $password, $database);
         }
     
           $myJSON = json_encode($data);
+
+          $myArrOut = array();
+          $sql = "SELECT w_id, winner_name, winner_amt, winner_choice FROM winners where deleted = 0";
+          $result = mysqli_query($link,$sql) or die("Unable to select: ".mysql_error());
+          while($row = mysqli_fetch_assoc($result)) {
+              array_push($myArrOut, $row);
+          }
+          mysqli_close($link);
+          file_put_contents('winner.json', json_encode($myArrOut));
+
           echo $myJSON;
     }
-
 
 ?>
