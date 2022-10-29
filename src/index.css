@@ -1,7 +1,8 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color:#f9b5ac;
+    background-color:#D2D79F;
+    color: #482838;
 }
 h1 {
     font-size:21.5px;
@@ -14,6 +15,7 @@ h1 {
     overflow-wrap:break-word;
     min-width: none;
     border: solid black;
+    border-color:#482838;
     background-color:#525854;
     color: #f9b5ac ;
     padding:10px;
