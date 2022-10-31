@@ -2,7 +2,7 @@ function getData()
 {
     const recordDiv = document.getElementById('records');
     recordDiv.innerHTML = 'loading...';
-    $.get('http://games.craftybymelissa.xyz/api/winner.json?' + Date.now(),
+    $.get('/api/winner.json?' + Date.now(),
     (data) => {
         data = data.reverse();
         let html = '<table>';
@@ -34,7 +34,7 @@ function addNewWinner()
         winner_amt: amount,
         winner_choice: choice
     };
-    $.post("http://games.craftybymelissa.xyz/api/wins.php", JSON.stringify(record), ( record ) => {
+    $.post("/api/wins.php", JSON.stringify(record), ( record ) => {
         getData();
       },'json');
 }
@@ -42,7 +42,7 @@ function addNewWinner()
 function deleteWinner(winnerId)
 {
     $.ajax({
-        url: 'http://games.craftybymelissa.xyz/api/wins.php',
+        url: '/api/wins.php',
         type: 'DELETE',
         success: function(data) {
           getData();
