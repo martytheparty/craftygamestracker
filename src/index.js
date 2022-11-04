@@ -34,9 +34,19 @@ function addNewWinner()
         winner_amt: amount,
         winner_choice: choice
     };
-    $.post("/api/wins.php", JSON.stringify(record), ( record ) => {
-        getData();
-      },'json');
+    $.ajax({
+        "url": "/api/wins.php",
+        "data": JSON.stringify(record),
+        "type": "POST",
+        "dataType": "json",
+        "contentType":"application/json; charset=utf-8",
+        "success": ( record ) => {
+            getData();
+          },
+        "error": function(jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        }
+    });
 }
 
 function deleteWinner(winnerId)
