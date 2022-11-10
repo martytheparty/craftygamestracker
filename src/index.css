@@ -45,9 +45,7 @@ h1 {
 
 .add-to-list
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 10px;
 }
 
 table
@@ -59,4 +57,9 @@ table
 {
     cursor: pointer;
     color: #483838;
+}
+
+.form
+{
+    width: 38%;
 }
