@@ -13,19 +13,23 @@
 <body>
     <div class="outer">
         <div class="form">
-            <div class="name input">
-                <input placeholder="Name" type="text" id="name">
+            <div>
+                <div class="name input">
+                    <input placeholder="Name" type="text" id="name">
+                </div>
+                <div class="amount input">
+                    <input placeholder="Amount" type="text" id="amount">
+                </div>
+                <div class="choice input">
+                    <textarea placeholder="Choice" type="text" id="choice"></textarea>
+                </div>
+                <div class="add-to-list">
+                    <button onclick="addNewWinner()">Add To List</button>
+                </div>
             </div>
-            <div class="amount input">
-                <input placeholder="Amount" type="text" id="amount">
-            </div>
-            <div class="choice input">
-                <textarea placeholder="Choice" type="text" id="choice"></textarea>
-            </div>
-            <div class="add-to-list">
-                <button onclick="addNewWinner()">Add To List</button>
-            </div>
+            <div id="pastwinners"></div>
         </div>
+
         <div id="records" class="records"></div>
     </div>
     <script src = "index.js"></script>
