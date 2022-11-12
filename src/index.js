@@ -1,9 +1,12 @@
+let winners;
+
 function getData()
 {
     const recordDiv = document.getElementById('records');
     recordDiv.innerHTML = 'loading...';
     $.get('/api/winner.json?' + Date.now(),
     (data) => {
+        winners = data;
         data = data.reverse();
         let html = '<table>';
         html = html + '<tr><th>Winner Name</th><th>Amount</th><th>Choice</th></tr>';
@@ -20,6 +23,7 @@ function getData()
 
         html = html + '</table>';
         recordDiv.innerHTML = html;
+        populateNamesList();
     });
 }
 
@@ -59,6 +63,27 @@ function deleteWinner(winnerId)
         },
         data:  JSON.stringify({w_id: winnerId})
       });
+}
+
+function populateNamesList()
+{
+    const pastWinnersEl = document.getElementById('pastwinners');
+    const markupStart = '<table>';
+    const markupEnd = '</table>';
+    let markup = '';
+    winners.forEach(
+        (winner) => {
+
+            markup = markup + `<tr><td><span class="clickable" onclick="pastWinnerClick('${winner.winner_name}')">${winner.winner_name}</span></td></tr>`;
+        }
+    );
+
+    pastWinnersEl.innerHTML = markupStart + markup + markupEnd;
+}
+
+function pastWinnerClick(winnerName)
+{
+    document.getElementById('name').value = winnerName;
 }
 
 getData();

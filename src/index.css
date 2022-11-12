@@ -62,4 +62,11 @@ table
 .form
 {
     width: 38%;
+    display: flex;
+}
+
+.clickable
+{
+    cursor: pointer;
+    text-decoration: underline;
 }
