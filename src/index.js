@@ -1,4 +1,5 @@
 let winners;
+let winnersDict = {};
 
 function getData()
 {
@@ -12,6 +13,7 @@ function getData()
         html = html + '<tr><th>Winner Name</th><th>Amount</th><th>Choice</th></tr>';
         data.forEach(
             (record) => {
+                winnersDict[record.winner_name] = record;
                 html = html + `<tr>
                     <td>${record.winner_name}</td>
                     <td>${record.winner_amt}</td>
@@ -71,9 +73,10 @@ function populateNamesList()
     const markupStart = '<table>';
     const markupEnd = '</table>';
     let markup = '';
-    winners.forEach(
-        (winner) => {
-
+    
+    Object.keys(winnersDict).forEach(
+        (winnerName) => {
+            const winner = winnersDict[winnerName];
             markup = markup + `<tr><td><span class="clickable" onclick="pastWinnerClick('${winner.winner_name}')">${winner.winner_name}</span></td></tr>`;
         }
     );
