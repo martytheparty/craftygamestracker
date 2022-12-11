@@ -35,6 +35,10 @@ function addNewWinner()
     const amount = document.getElementById('amount').value;
     const choice = document.getElementById('choice').value;
 
+    document.getElementById('name').value = "";
+    document.getElementById('amount').value = "";
+    document.getElementById('choice').value = "";
+
     const record = {
         winner_name: name,
         winner_amt: amount,
