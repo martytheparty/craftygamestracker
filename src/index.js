@@ -34,6 +34,10 @@ function addNewWinner()
     const name = document.getElementById('name').value;
     const amount = document.getElementById('amount').value;
     const choice = document.getElementById('choice').value;
+    const addButton = document.getElementById('newWinnerButton');
+    
+    addButton.disabled = true;
+    addButton.innerHTML = 'saving...';
 
     document.getElementById('name').value = "";
     document.getElementById('amount').value = "";
@@ -52,8 +56,12 @@ function addNewWinner()
         "contentType":"application/json; charset=utf-8",
         "success": ( record ) => {
             getData();
+            addButton.disabled = false;
+            addButton.innerHTML = "Add To List";
           },
         "error": function(jqXHR, textStatus, errorThrown) {
+            addButton.disabled = false;
+            addButton.innerHTML = "Add To List";
             alert(errorThrown);
         }
     });
