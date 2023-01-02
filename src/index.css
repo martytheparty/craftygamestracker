@@ -70,3 +70,19 @@ table
     cursor: pointer;
     text-decoration: underline;
 }
+
+.record:nth-child(even)
+{
+    background-color: #90B77D;
+}
+
+.record:nth-child(odd)
+{
+    background-color: #6a865c;
+}
+
+.table-heading
+{
+    color:#AAAAAA;
+    background-color:#000000;
+}
