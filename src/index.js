@@ -9,12 +9,12 @@ function getData()
     (data) => {
         winners = data;
         data = data.reverse();
-        let html = '<table>';
-        html = html + '<tr><th>Winner Name</th><th>Amount</th><th>Choice</th></tr>';
+        let html = '<table cellspacing="0" cellpadding="0">';
+        html = html + '<tr class="table-heading"><th>winner</th><th>amt</th><th colspan="2">choice</th></tr>';
         data.forEach(
             (record) => {
                 winnersDict[record.winner_name] = record;
-                html = html + `<tr>
+                html = html + `<tr class='record'>
                     <td>${record.winner_name}</td>
                     <td>${record.winner_amt}</td>
                     <td>${record.winner_choice}</td>
