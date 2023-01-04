@@ -88,5 +88,6 @@ table
 }
 
 #newWinnerButton{
-background-color: #6a865c
+background-color: #6a865c;
+border-radius: 4px;
 }
