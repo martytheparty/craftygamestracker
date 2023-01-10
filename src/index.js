@@ -26,6 +26,7 @@ function getData()
         html = html + '</table>';
         recordDiv.innerHTML = html;
         populateNamesList();
+        populateAmountsList();
     });
 }
 
@@ -99,6 +100,27 @@ function populateNamesList()
 function pastWinnerClick(winnerName)
 {
     document.getElementById('name').value = winnerName;
+}
+function pastAmountClick(amount){
+    document.getElementById("amount").value = amount
+}
+
+function populateAmountsList(){
+    const pastAmountsEl = document.getElementById('pastamounts');
+    const markupStart = '<table>';
+    const markupEnd = '</table>';
+    let markup = '';
+    const amounts = winners.map((winner, i, ws)=>{
+        return winner.winner_amt
+    })
+    amounts.forEach(
+        (amt) => {
+            markup = markup + `<tr><td><span class = "clickable" onclick="pastAmountClick(${amt})">${amt}</span</td></tr>`
+        }
+    )
+   
+
+    pastAmountsEl.innerHTML = markupStart + markup + markupEnd;
 }
 
 getData();
