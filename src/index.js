@@ -120,7 +120,7 @@ function populateAmountsList(){
     )
    
 
-    pastAmountsEl.innerHTML = markupStart + markup + markupEnd;
+        pastAmountsEl.innerHTML = markupStart + markup + markupEnd;
 }
 
 getData();
